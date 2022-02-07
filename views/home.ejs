@@ -1,0 +1,75 @@
+
+<html lang="en">
+<head>
+     <title>
+        <%= titleName %>
+    </title>
+    <link rel="stylesheet" href="/css/home.css">
+
+    <!-- Font Awesome Css  -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+   
+    
+</head>
+<body>
+    <h1 class="ml6">
+   
+        <i class="fas fa-address-book"></i>&nbsp;Contact Bucket List
+  
+    </h1>
+    
+         <form action="/create-contact" method="POST">
+        <input type="text" name="name" placeholder="Name" required>
+        <input type="number" name="phone" placeholder="Phone No." required>
+        <input type="email" name="email" placeholder="E-mail" >
+        <button type="submit">Add Contacts</button>
+       
+
+    </form>
+    <div class="list-container">
+        <ul>
+            <% for(let i of contact_List){ %>
+                <li>
+                    
+                    <div>
+                        <a href="/delete-contact/?id=<%= i._id %>">
+                        <i class="far fa-times-circle"></i>
+                    </a>
+                        <%= i.name %></div>
+                      <div>  <%= i.email %></div>
+                    <div><%= i.phone %></div>
+                </li>
+             
+            <% } %>
+        </ul>
+    </div>
+
+   
+
+   
+     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+         <script type="text/javascript" src="/js/three.min.js"></script>
+    <script type="text/javascript" src="/js/vanta.clouds.min.js"></script>
+
+
+    <!-- <script src="three.r119.min.js"></script>
+    <script src="vanta.clouds.min.js"></script> -->
+    <script>
+        VANTA.CLOUDS({
+            el: "body",
+            mouseControls: true,
+            touchControls: true,
+            gyroControls: false,
+            minHeight: 200.00,
+            minWidth: 200.00,
+            skyColor: 0x2d7293,
+            sunColor: 0xffaa49
+        })
+    </script>
+
+ <script type="text/javascript" src="/js/home.js"></script>
+    
+</body>
+
+</html>
